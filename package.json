@@ -1,0 +1,29 @@
+{
+  "name": "dotai",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "dotai": "./install.ts"
+  },
+  "files": [
+    "install.ts",
+    "skills"
+  ],
+  "scripts": {
+    "release": "tsx release.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauriziomambrini/dotai.git"
+  },
+  "dependencies": {
+    "prompts": "^2.4.2",
+    "tsx": "^4.19.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/prompts": "^2.4.9",
+    "typescript": "^5.8.3"
+  }
+}
