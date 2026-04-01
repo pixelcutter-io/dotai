@@ -7,11 +7,11 @@ Personal AI configuration and skills for Claude Code, Cursor, and Windsurf.
 In your project, install dotAI as a dev dependency from GitHub:
 
 ```bash
-bun add -D github:pixelcutter-io/dotai#v1.0.0
+bun add -D github:pixelcutter-io/dotai
 # or
-npm install -D github:pixelcutter-io/dotai#v1.0.0
+npm install -D github:pixelcutter-io/dotai
 # or
-yarn add -D github:pixelcutter-io/dotai#v1.0.0
+yarn add -D github:pixelcutter-io/dotai
 ```
 
 ## Usage
