@@ -111,6 +111,10 @@ const run = async () => {
     console.log(`  \x1b[32m✓\x1b[0m ${skill}`);
   }
 
+  // Install dotai-update skill (always)
+  cpSync(join(DOTAI_DIR, 'skills/_dotai-update'), join(SKILLS_DIR, '_dotai-update'), { recursive: true });
+  console.log(`  \x1b[32m✓\x1b[0m _dotai-update`);
+
   console.log('\n\x1b[1mDone.\x1b[0m Skills installed in ' + SKILLS_DIR + '/\n');
 };
 

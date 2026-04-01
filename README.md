@@ -1,10 +1,10 @@
-# dotai
+# dotAI
 
 Personal AI configuration and skills for Claude Code, Cursor, and Windsurf.
 
 ## Installation
 
-In your project, install dotai as a dev dependency from GitHub:
+In your project, install dotAI as a dev dependency from GitHub:
 
 ```bash
 bun add -D github:pixelcutter-io/dotai#v1.0.0
@@ -32,7 +32,7 @@ The installer will:
 3. Let you select skills (TypeScript, SCSS, CSS Modules)
 4. Install selected skills in the appropriate directory (`.claude/skills/`, `.cursor/rules/`, `.windsurf/rules/`)
 
-## Updating
+## Updating dotAI
 
 To update to the latest version:
 
@@ -46,6 +46,20 @@ Or install a specific version:
 bun add -D github:pixelcutter-io/dotai#v1.0.1
 ```
 
+## Updating Skills
+
+To update a skill while working on a project, tell your AI assistant:
+
+> "update the react skill in ~/dotai with this pattern"
+
+The AI will:
+1. Edit the skill file in `~/dotai/skills/[skill-name]/SKILL.md`
+2. Commit changes locally
+3. Ask you to review with `git diff HEAD~1`
+4. You push manually when satisfied
+
+After pushing, run `bun update dotai` in your projects to get the changes.
+
 ## Available Skills
 
 | Skill | Description |
@@ -55,6 +69,7 @@ bun add -D github:pixelcutter-io/dotai#v1.0.1
 | `next-js` | Next.js conventions: Server/Client components, routing, metadata |
 | `scss` | SCSS conventions: variables, mixins, nesting, imports |
 | `css-modules` | CSS Modules conventions: naming, imports, class access |
+| `_dotai-update` | Meta-skill: teaches AI how to update skills in ~/dotai (auto-installed) |
 
 ## Development
 
@@ -105,6 +120,8 @@ dotai/
 ├── tsconfig.json           # TypeScript config
 ├── bun.lockb               # Bun lockfile
 └── skills/
+    ├── _dotai-update/      # Meta-skill (auto-installed)
+    │   └── SKILL.md
     ├── typescript/
     │   └── SKILL.md
     ├── react/
