@@ -95,19 +95,19 @@ const run = async () => {
 
   // Framework skills
   if (framework === 'nextjs') {
-    cpSync(join(DOTAI_DIR, 'skills/react'), join(SKILLS_DIR, 'react'), { recursive: true });
-    cpSync(join(DOTAI_DIR, 'skills/next-js'), join(SKILLS_DIR, 'next-js'), { recursive: true });
-    console.log('  \x1b[32m✓\x1b[0m react');
-    console.log('  \x1b[32m✓\x1b[0m next-js');
+    cpSync(join(DOTAI_DIR, 'skills/dotai-react'), join(SKILLS_DIR, 'dotai-react'), { recursive: true });
+    cpSync(join(DOTAI_DIR, 'skills/dotai-next-js'), join(SKILLS_DIR, 'dotai-next-js'), { recursive: true });
+    console.log('  \x1b[32m✓\x1b[0m dotai-react');
+    console.log('  \x1b[32m✓\x1b[0m dotai-next-js');
   } else if (framework === 'react') {
-    cpSync(join(DOTAI_DIR, 'skills/react'), join(SKILLS_DIR, 'react'), { recursive: true });
-    console.log('  \x1b[32m✓\x1b[0m react');
+    cpSync(join(DOTAI_DIR, 'skills/dotai-react'), join(SKILLS_DIR, 'dotai-react'), { recursive: true });
+    console.log('  \x1b[32m✓\x1b[0m dotai-react');
   }
 
   // Selected skills
   for (const skill of skills) {
-    cpSync(join(DOTAI_DIR, `skills/${skill}`), join(SKILLS_DIR, skill), { recursive: true });
-    console.log(`  \x1b[32m✓\x1b[0m ${skill}`);
+    cpSync(join(DOTAI_DIR, `skills/dotai-${skill}`), join(SKILLS_DIR, `dotai-${skill}`), { recursive: true });
+    console.log(`  \x1b[32m✓\x1b[0m dotai-${skill}`);
   }
 
   // Install dotai-update skill (always)

@@ -7,7 +7,7 @@ description: >
 
 # Updating dotai skills
 
-When the user asks to update a skill (e.g., "update the react skill with this pattern"):
+When the user asks to update a skill (e.g., "update the dotai-react skill with this pattern"):
 
 ## Process
 
@@ -16,12 +16,12 @@ When the user asks to update a skill (e.g., "update the react skill with this pa
    cd ~/dotai
    ```
 
-2. Edit the skill file in `~/dotai/skills/[skill-name]/SKILL.md`
+2. Edit the skill file in `~/dotai/skills/dotai-[skill-name]/SKILL.md`
 
 3. Commit changes (DO NOT push automatically):
    ```bash
    git add .
-   git commit -m "update: [skill-name] - [brief description]"
+   git commit -m "update: dotai-[skill-name] - [brief description]"
    ```
 
 4. Inform the user that:
@@ -31,7 +31,8 @@ When the user asks to update a skill (e.g., "update the react skill with this pa
 
 ## Important
 
-- All skill files are located in `~/dotai/skills/`
+- All official dotAI skills are located in `~/dotai/skills/` with the prefix `dotai-`
 - Each skill has a `SKILL.md` file with YAML frontmatter
+- The `dotai-` prefix distinguishes official skills from user custom skills
 - NEVER push automatically - the user must review and push manually
 - After push, the user will need to run `bun update dotai` in their projects to get the latest version

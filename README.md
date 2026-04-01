@@ -32,6 +32,8 @@ The installer will:
 3. Let you select skills (TypeScript, SCSS, CSS Modules)
 4. Install selected skills in the appropriate directory (`.claude/skills/`, `.cursor/rules/`, `.windsurf/rules/`)
 
+**Note:** Official dotAI skills are prefixed with `dotai-` (e.g., `dotai-react`, `dotai-typescript`). This allows you to create custom skills without name conflicts. When you update dotAI, only `dotai-*` skills are overwritten—your custom skills remain untouched.
+
 ## Updating dotAI
 
 To update to the latest version:
@@ -50,10 +52,10 @@ bun add -D github:pixelcutter-io/dotai#v1.0.1
 
 To update a skill while working on a project, tell your AI assistant:
 
-> "update the react skill in ~/dotai with this pattern"
+> "update the dotai-react skill in ~/dotai with this pattern"
 
 The AI will:
-1. Edit the skill file in `~/dotai/skills/[skill-name]/SKILL.md`
+1. Edit the skill file in `~/dotai/skills/dotai-[skill-name]/SKILL.md`
 2. Commit changes locally
 3. Ask you to review with `git diff HEAD~1`
 4. You push manually when satisfied
@@ -64,11 +66,11 @@ After pushing, run `bun update dotai` in your projects to get the changes.
 
 | Skill | Description |
 |---|---|
-| `typescript` | TypeScript conventions: interfaces vs types, naming, strict mode |
-| `react` | React component conventions: file structure, props, hooks |
-| `next-js` | Next.js conventions: Server/Client components, routing, metadata |
-| `scss` | SCSS conventions: variables, mixins, nesting, imports |
-| `css-modules` | CSS Modules conventions: naming, imports, class access |
+| `dotai-typescript` | TypeScript conventions: interfaces vs types, naming, strict mode |
+| `dotai-react` | React component conventions: file structure, props, hooks |
+| `dotai-next-js` | Next.js conventions: Server/Client components, routing, metadata |
+| `dotai-scss` | SCSS conventions: variables, mixins, nesting, imports |
+| `dotai-css-modules` | CSS Modules conventions: naming, imports, class access |
 | `_dotai-update` | Meta-skill: teaches AI how to update skills in ~/dotai (auto-installed) |
 
 ## Development
@@ -122,14 +124,14 @@ dotai/
 └── skills/
     ├── _dotai-update/      # Meta-skill (auto-installed)
     │   └── SKILL.md
-    ├── typescript/
+    ├── dotai-typescript/
     │   └── SKILL.md
-    ├── react/
+    ├── dotai-react/
     │   └── SKILL.md
-    ├── next-js/
+    ├── dotai-next-js/
     │   └── SKILL.md
-    ├── scss/
+    ├── dotai-scss/
     │   └── SKILL.md
-    └── css-modules/
+    └── dotai-css-modules/
         └── SKILL.md
 ```
