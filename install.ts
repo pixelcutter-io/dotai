@@ -75,13 +75,12 @@ const run = async () => {
   const { skills } = await prompts({
     type: 'multiselect',
     name: 'skills',
-    message: 'Select skills (Space to select, Enter to confirm)',
+    message: 'Select skills',
     choices: [
       { title: 'TypeScript', value: 'typescript', selected: true },
       { title: 'SCSS', value: 'scss' },
       { title: 'CSS Modules', value: 'css-modules' },
     ],
-    hint: '- Space to select. Return to submit',
   });
 
   if (!skills) {
