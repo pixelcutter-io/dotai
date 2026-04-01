@@ -1,17 +1,17 @@
 # dotai
 
-Personal AI configuration and skills for Claude Code and other AI tools.
+Personal AI configuration and skills for Claude Code, Cursor, and Windsurf.
 
 ## Installation
 
-In your project, install dotai as a dev dependency:
+In your project, install dotai as a dev dependency from GitHub:
 
 ```bash
-bun add -D github:mauriziomambrini/dotai
+bun add -D github:pixelcutter-io/dotai#v1.0.0
 # or
-npm install -D github:mauriziomambrini/dotai
+npm install -D github:pixelcutter-io/dotai#v1.0.0
 # or
-yarn add -D github:mauriziomambrini/dotai
+yarn add -D github:pixelcutter-io/dotai#v1.0.0
 ```
 
 ## Usage
@@ -26,59 +26,93 @@ npx dotai
 yarn dotai
 ```
 
-Installs only the skills relevant to the project into the appropriate directory based on your AI tool (`.claude/skills/`, `.cursor/rules/`, etc.).
+The installer will:
+1. Ask which AI tool you're using (Claude Code, Cursor, Windsurf)
+2. Let you select your framework (Next.js, React, None)
+3. Let you select skills (TypeScript, SCSS, CSS Modules)
+4. Install selected skills in the appropriate directory (`.claude/skills/`, `.cursor/rules/`, `.windsurf/rules/`)
 
-## Update a skill
+## Updating
 
-While working on a project, tell Claude Code:
+To update to the latest version:
 
-> "update the react-components skill in ~/dotai with this pattern"
+```bash
+bun update dotai
+```
 
-Claude will edit the file, commit and push.
+Or install a specific version:
 
-## Skills
+```bash
+bun add -D github:pixelcutter-io/dotai#v1.0.1
+```
 
-### Common (always installed)
-
-| Skill | Description |
-|---|---|
-| `typescript` | Strict mode, interface vs type, generics, narrowing |
-| `imports` | `@/` alias, relative scss, React named imports |
-
-### Common (optional)
-
-| Skill | Description |
-|---|---|
-| `tooling/bun` | Bun as package manager |
-| `tooling/biome` | Biome for linting and formatting |
-| `tooling/stylelint` | Stylelint for `.module.scss` |
-| `styling` | Sass Modules, class naming, `@use`, global variables |
-
-### Framework
+## Available Skills
 
 | Skill | Description |
 |---|---|
-| `react/components` | Arrow functions, props interface, render methods, Server vs Client |
-| `astro/components` | Coming soon |
-| `vue/components` | Coming soon |
+| `typescript` | TypeScript conventions: interfaces vs types, naming, strict mode |
+| `react` | React component conventions: file structure, props, hooks |
+| `next-js` | Next.js conventions: Server/Client components, routing, metadata |
+| `scss` | SCSS conventions: variables, mixins, nesting, imports |
+| `css-modules` | CSS Modules conventions: naming, imports, class access |
 
-## Structure
+## Development
+
+### Setup
+
+Clone and install dependencies:
+
+```bash
+git clone git@github.com:pixelcutter-io/dotai.git
+cd dotai
+bun install
+```
+
+### Adding/Editing Skills
+
+1. Edit skill files in `skills/` directory
+2. Each skill must have a `SKILL.md` with frontmatter:
+
+```md
+---
+name: skill-name
+description: >
+  Description of when to use this skill
+---
+
+# Skill content...
+```
+
+### Release New Version
+
+```bash
+bun run release
+```
+
+This will:
+1. Prompt for version bump (patch/minor/major)
+2. Update `package.json`
+3. Create commit and tag
+4. Push to GitHub
+
+## Project Structure
 
 ```
 dotai/
-├── install.sh
-├── README.md
+├── install.ts              # Interactive installer
+├── release.ts              # Release automation
+├── package.json            # Package config
+├── tsconfig.json           # TypeScript config
+├── bun.lockb               # Bun lockfile
 └── skills/
-    ├── common/
-    │   ├── typescript/
-    │   ├── imports/
-    │   ├── styling/
-    │   └── tooling/
-    │       ├── bun/
-    │       ├── biome/
-    │       └── stylelint/
+    ├── typescript/
+    │   └── SKILL.md
     ├── react/
-    │   └── components/
-    ├── astro/
-    └── vue/
+    │   └── SKILL.md
+    ├── next-js/
+    │   └── SKILL.md
+    ├── scss/
+    │   └── SKILL.md
+    └── css-modules/
+        └── SKILL.md
 ```
